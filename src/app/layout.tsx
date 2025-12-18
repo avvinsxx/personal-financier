@@ -1,5 +1,6 @@
 import { AppRouterCacheProvider } from "@mui/material-nextjs/v13-appRouter";
 import { ThemeProvider } from "@mui/material/styles";
+import { CssBaseline } from "@mui/material";
 import { Roboto, Bodoni_Moda } from "next/font/google";
 import type { Metadata } from "next";
 
@@ -13,7 +14,7 @@ const roboto = Roboto({
 });
 
 const bodoni = Bodoni_Moda({
-  weight: ["600", "800"],
+  weight: ["800"],
   subsets: ["latin"],
   display: "swap",
   variable: "--font-bodoni",
@@ -33,6 +34,7 @@ export default function RootLayout({
     <html lang="ru">
       <body className={`${roboto.variable} ${bodoni.variable}`}>
         <AppRouterCacheProvider>
+          <CssBaseline />
           <ThemeProvider theme={theme}>{children}</ThemeProvider>
         </AppRouterCacheProvider>
       </body>
