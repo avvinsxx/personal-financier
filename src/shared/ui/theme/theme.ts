@@ -20,8 +20,9 @@ export const theme = createTheme({
   },
   palette: {
     green: {
+      light: "#e9f7ed",
       main: "#d4edda",
-      dark: "#a9d8b2",
+      dark: "#7bb489",
     },
   },
 });

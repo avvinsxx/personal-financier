@@ -15,9 +15,8 @@ export const auth = betterAuth({
     emailOTP({
       sendVerificationOnSignUp: true,
       otpLength: 6,
-      expiresIn: 600,
+      expiresIn: 300,
       async sendVerificationOTP({ email, otp, type }) {
-        console.log({ type });
         if (type === "sign-in") {
           // Send the OTP for sign in
         } else if (type === "email-verification") {
@@ -28,4 +27,13 @@ export const auth = betterAuth({
       },
     }),
   ],
+  rateLimit: {
+    enabled: true,
+    customRules: {
+      "/email-otp/send-verification-otp": {
+        max: 1,
+        window: 60,
+      },
+    },
+  },
 });
