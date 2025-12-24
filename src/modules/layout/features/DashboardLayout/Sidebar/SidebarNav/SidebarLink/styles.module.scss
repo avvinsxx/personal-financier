@@ -1,0 +1,19 @@
+@use "colors";
+@use "spacing";
+@use "rounding";
+
+.sidebarLink {
+    color: colors.$textPrimary;
+    display: flex;
+    align-items: center;
+    gap: spacing.$xs;
+    text-decoration: none;
+    padding-block: spacing.$sm;
+    padding-inline: spacing.$sm;
+    border-radius: rounding.$md;
+
+    &_active,
+    &:hover {
+        background-color: colors.$bgLight;
+    }
+}

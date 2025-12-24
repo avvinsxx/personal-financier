@@ -1,0 +1,13 @@
+@use "colors";
+@use "spacing";
+
+.dashboardLayout {
+    background-color: colors.$bgLight;
+    display: flex;
+    flex-directrion: row;
+    height: 100dvh;
+
+    &__main {
+        padding: spacing.$md;
+    }
+}

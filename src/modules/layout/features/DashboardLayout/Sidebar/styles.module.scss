@@ -1,0 +1,9 @@
+@use "colors";
+@use "spacing";
+
+.sidebar {
+    background-color: colors.$bgDark;
+    width: 240px;
+    padding: spacing.$sm;
+
+}
