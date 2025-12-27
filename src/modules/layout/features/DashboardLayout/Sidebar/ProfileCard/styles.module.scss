@@ -1,0 +1,19 @@
+@use "spacing";
+
+.profileCard {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: spacing.$sm;
+
+    &__info {
+        flex: 1;
+        min-width: 0;
+    }
+
+    &__avatar {
+        height: 48px;
+        width: 48px;
+        border-radius: 999px;
+    }
+}

@@ -1,0 +1,26 @@
+@use "colors";
+@use "spacing";
+@use "rounding";
+
+.button {
+    border-radius: rounding.$sm;
+    display: flex;
+
+    &_sm {
+        padding: spacing.$xs;
+    }
+
+    &_md {
+        padding: spacing.$sm;
+    }
+
+    &_filled {
+        background-color: colors.$buttonBgPrimary;
+        color: colors.$buttonTextPrimary;
+    }
+
+    &_outlined {
+        border: 1px solid colors.$buttonBgPrimary;
+        color: colors.$buttonBgPrimary;
+    }
+}

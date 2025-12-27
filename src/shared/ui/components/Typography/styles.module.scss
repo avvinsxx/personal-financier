@@ -1,0 +1,17 @@
+@use "typography";
+
+.typography {
+    &_trunc {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+    }
+
+    &_h3 {
+        font-size: typography.$h3;
+    }
+
+    &_text2 {
+        font-size: typography.$text2;
+    }
+}
