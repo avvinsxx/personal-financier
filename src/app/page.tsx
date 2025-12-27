@@ -1,24 +1,30 @@
-import { Box, Button, Typography } from "@mui/material";
+import { Button, Logo, Typography } from "@/shared";
 
-import { Logo } from "@/shared";
-
-import { styles } from "./styles";
+import styles from "./styles.module.scss";
 
 export default function Page() {
   return (
-    <Box sx={styles.page}>
+    <div className={styles.page}>
       <Logo variant="logo1" />
-      <Typography variant="h4" sx={styles.page__slogan}>
+
+      <Typography variant="h2" className={styles.page__slogan}>
         Ваш персональный помощник в учете личных финансов
       </Typography>
-      <Box sx={styles.page__buttonsRow}>
-        <Button variant="contained" size="large">
+
+      <div className={styles.page__buttonsRow}>
+        <Button
+          color="primary"
+          size="md"
+          variant="filled"
+          asLink
+          href="/sign-in"
+        >
           Начать
         </Button>
-        <Button variant="outlined" size="large">
+        <Button color="primary" size="md" variant="outlined">
           О проекте
         </Button>
-      </Box>
-    </Box>
+      </div>
+    </div>
   );
 }
