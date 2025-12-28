@@ -1,0 +1,7 @@
+@use "colors";
+@use "typography";
+
+.inputError {
+    color: colors.$error;
+    font-size: typography.$text2;
+}

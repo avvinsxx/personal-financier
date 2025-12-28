@@ -1,0 +1,52 @@
+@use "colors";
+@use "spacing";
+@use "typography";
+@use "rounding";
+
+.input {
+    position: relative;
+
+    &__label {
+        font-size: typography.$text1;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: translate(13px, 11px);
+        transition:
+            transform 0.3s,
+            backdrop-filter 0.3s,
+            padding 0.3s;
+
+        &_error {
+            color: colors.$error;
+        }
+    }
+
+    &__input {
+        font-size: typography.$text1;
+        padding: spacing.$sm;
+        width: 100%;
+        border: 1px solid colors.$border;
+        background-color: transparent;
+        border-radius: rounding.$sm;
+
+        &:focus {
+            outline: 1px solid colors.$border;
+        }
+
+        &:focus + .input__label,
+        &_filled + .input__label {
+            transform: translate(5px, -10px) scale(0.8);
+            backdrop-filter: blur(20px);
+            padding: 0 5px;
+        }
+
+        &_error {
+            border-color: colors.$error;
+
+            &:focus {
+                outline: 1px solid colors.$error;
+            }
+        }
+    }
+}
