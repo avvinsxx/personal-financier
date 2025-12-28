@@ -8,7 +8,7 @@ export default function Page() {
       <Logo variant="logo1" />
 
       <Typography variant="h2" className={styles.page__slogan}>
-        Ваш персональный помощник в учете личных финансов
+        Следи за всеми подписками в одном месте
       </Typography>
 
       <div className={styles.page__buttonsRow}>

@@ -7,9 +7,9 @@ export const Logo = ({ variant }: { variant: "logo1" | "logo2" }) => {
     <Typography
       variant={variant}
       className={styles.logo}
-      data-name="Personal Financier"
+      data-name="Subscription Tracker"
     >
-      Personal Financier
+      Subscription Tracker
     </Typography>
   );
 };

@@ -10,8 +10,8 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Personal Financier",
-  description: "Учет личных финансов",
+  title: "Subscription tracker",
+  description: "Отслеживание подисок",
 };
 
 export default function RootLayout({

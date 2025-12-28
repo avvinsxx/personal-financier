@@ -1,3 +1,3 @@
 export default function Page() {
-  return <p>Операции</p>;
+  return <p>Подписки</p>;
 }

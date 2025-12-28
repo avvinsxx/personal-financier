@@ -23,11 +23,11 @@ export const SidebarNav = () => {
         </li>
         <li>
           <SidebarLink
-            href="/dashboard/operations"
-            active={"/dashboard/operations" === pathname}
+            href="/dashboard/subscriptions"
+            active={"/dashboard/subscriptions" === pathname}
             icon={DollarCircleOutlined}
           >
-            Операции
+            Подписки
           </SidebarLink>
         </li>
       </ul>

@@ -1,5 +1,5 @@
-# Personal financier
-Приложения для учета личных финансов
+# Subscription tracker
+Приложение для отслеживания подписок
 
 ## Начало работы
 
@@ -13,9 +13,9 @@ npm run dev
 ## Технологический стек
 
 - Next 16
-- MUI
 - Prisma
 - Docker
 - Postgres
 - Better-Auth
 - React Hook Form
+- SCSS
