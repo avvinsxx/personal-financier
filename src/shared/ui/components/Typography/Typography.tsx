@@ -41,6 +41,7 @@ export const Typography = ({
   return (
     <Component
       className={clsx(
+        styles.typography,
         styles[`typography_${variant}`],
         truncate && styles.typography_trunc,
         className,

@@ -19,6 +19,7 @@ export const Button = ({
         className={clsx(
           styles.button,
           styles[`button_${variant}`],
+          styles[`button_${color}`],
           styles[`button_${size}`],
           className,
         )}
@@ -33,6 +34,7 @@ export const Button = ({
         className={clsx(
           styles.button,
           styles[`button_${variant}`],
+          styles[`button_${color}`],
           styles[`button_${size}`],
           className,
         )}

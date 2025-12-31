@@ -1,52 +1,125 @@
 @use "typography";
-@use "colors";
 
-.logo {
-    display: inline-block;
+$block: ".logo";
+
+#{$block} {
     position: relative;
-    letter-spacing: 0.05em;
-    text-shadow:
-        1px 1px colors.$textLogo,
-        -1px 1px colors.$textLogo,
-        -1px -1px colors.$textLogo,
-        1px -1px colors.$textLogo;
-    overflow: hidden;
-    color: white;
-    transition: all 1s;
-    text-align: center;
-    z-index: 1;
+    display: inline-block;
+    line-height: 1;
+    color: var(--primary-color);
+    font-size: typography.$logo1;
+    transition-delay: 0.5s;
 
-    &::before {
-        content: "";
-        position: absolute;
-        top: 10px;
-        right: -15px;
-        bottom: -15px;
-        left: 0;
-        z-index: -1;
-        background: linear-gradient(
-                -45deg,
-                rgba(72, 209, 204, 0) 2px,
-                colors.$bgLight 3px,
-                rgba(72, 209, 204, 0) 3px
-            )
-            repeat;
-        background-size: 4px 4px;
+    &:hover {
+        color: transparent;
+        transition-delay: 0s;
+
+        #{$block}__top {
+            transform: translateY(-(typography.$logo1 * 0.25));
+        }
+
+        #{$block}__bottom {
+            transform: translateY((typography.$logo1 * 0.25));
+        }
+
+        #{$block}__slogan {
+            transform: translateY(-50%) scaleY(1);
+            animation: subscriptions_logo_in 0.8s ease-in both;
+        }
     }
 
-    &::after {
-        content: attr(data-name);
+    &__top {
+        font-size: typography.$logo1;
+        color: var(--primary-color);
         position: absolute;
-        top: 3px;
-        left: 3px;
-        z-index: -2;
-        text-shadow:
-            1px 1px white,
-            2px 2px white,
-            3px 3px white,
-            4px 4px white;
-        color: white;
-        transition: all 1s;
+        top: 0;
+        left: 0;
+        transition: 0.5s;
+        clip-path: polygon(0 0, 100% 0, 100% 50%, 0 50%);
+        overflow: hidden;
+    }
+
+    &__bottom {
+        font-size: typography.$logo1;
+        color: var(--primary-color);
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: 0.5s;
+        clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
+        overflow: hidden;
+    }
+
+    &__slogan {
+        position: absolute;
+        top: 50%;
+        left: 0;
+        transform: translateY(-50%) scaleY(0);
         width: 100%;
+        color: var(--bg-color);
+
+        letter-spacing: 0.1em;
+        text-align: center;
+        transition: 0.5s;
+        padding: 5px 0;
+
+        background-color: var(--primary-color);
+        background-repeat: no-repeat;
+        background-image:
+            url("./assets/netflix.png"), url("./assets/ivi.png"),
+            url("./assets/yandex.png"), url("./assets/xbox.png"),
+            url("./assets/ea.png"), url("./assets/ps_plus.png");
+        background-size: 60px, 60px, 60px, 60px, 60px, 60px;
+        background-position:
+            -60px center,
+            -60px center,
+            -60px center,
+            right -60px center,
+            right -60px center,
+            right -60px center;
+
+        animation: subscriptions_logo_out 0.8s ease-out both;
+    }
+}
+
+@keyframes subscriptions_logo_in {
+    0% {
+        background-position:
+            -60px center,
+            -60px center,
+            -60px center,
+            right -60px center,
+            right -60px center,
+            right -60px center;
+    }
+    100% {
+        background-position:
+            120px center,
+            80px center,
+            40px center,
+            right 130px center,
+            right 90px center,
+            right 40px center;
+    }
+}
+
+@keyframes subscriptions_logo_out {
+    0% {
+        background-position:
+            120px center,
+            80px center,
+            40px center,
+            right 130px center,
+            right 90px center,
+            right 40px center;
+    }
+    100% {
+        background-position:
+            -60px center,
+            -60px center,
+            -60px center,
+            right -60px center,
+            right -60px center,
+            right -60px center;
     }
 }

@@ -7,10 +7,6 @@ export default function Page() {
     <div className={styles.page}>
       <Logo variant="logo1" />
 
-      <Typography variant="h2" className={styles.page__slogan}>
-        Следи за всеми подписками в одном месте
-      </Typography>
-
       <div className={styles.page__buttonsRow}>
         <Button
           color="primary"

@@ -1,11 +1,10 @@
-@use "colors";
 @use "spacing";
 
 .sidebar {
-    background-color: colors.$bgDark;
+    background-color: var(--surface-color);
     width: 240px;
     padding: spacing.$sm;
-    box-shadow: 0 0 10px 5px colors.$shadow;
+    box-shadow: 0 0 10px 5px var(--shadow-color);
     display: flex;
     flex-direction: column;
     gap: spacing.$md;

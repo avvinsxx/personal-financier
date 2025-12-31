@@ -1,9 +1,8 @@
-@use "colors";
 @use "spacing";
 @use "rounding";
 
 .sidebarLink {
-    color: colors.$textPrimary;
+    color: var(--text-color);
     display: flex;
     align-items: center;
     gap: spacing.$xs;
@@ -14,6 +13,6 @@
 
     &_active,
     &:hover {
-        background-color: colors.$bgLight;
+        background-color: var(--primary-color);
     }
 }

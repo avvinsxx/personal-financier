@@ -2,6 +2,7 @@ import { Inter } from "next/font/google";
 import type { Metadata } from "next";
 
 import "@/shared/ui/theme/reset.scss";
+import "@/shared/ui/theme/theme.scss";
 
 const inter = Inter({
   weight: ["300", "400", "500", "700"],
@@ -11,7 +12,7 @@ const inter = Inter({
 
 export const metadata: Metadata = {
   title: "Subscription tracker",
-  description: "Отслеживание подисок",
+  description: "Отслеживание подписок",
 };
 
 export default function RootLayout({

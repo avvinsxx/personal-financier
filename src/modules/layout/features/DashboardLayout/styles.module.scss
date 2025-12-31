@@ -1,8 +1,7 @@
-@use "colors";
 @use "spacing";
 
 .dashboardLayout {
-    background-color: colors.$bgLight;
+    background-color: var(--bg-color);
     display: flex;
     flex-directrion: row;
     height: 100dvh;

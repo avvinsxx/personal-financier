@@ -1,4 +1,23 @@
 @use "colors";
-@use "typography";
-@use "spacing";
-@use "breakpoints";
+
+:root {
+    --bg-color: #{colors.$color-emerald-100};
+    --text-color: #{colors.$color-neutral-950};
+    --primary-color: #{colors.$color-amber-600};
+    --surface-color: #{colors.$color-emerald-600};
+    --border-color: #{colors.$color-neutral-950};
+    --error-color: #{colors.$color-red-700};
+    --shadow-color: #{colors.$color-neutral-500};
+    --btn-secondary-color: #{colors.$color-neutral-950};
+
+    @media (prefers-color-scheme: dark) {
+        --bg-color: #{colors.$color-emerald-950};
+        --text-color: #{colors.$color-neutral-100};
+        --primary-color: #{colors.$color-amber-600};
+        --surface-color: #{colors.$color-emerald-800};
+        --border-color: #{colors.$color-neutral-100};
+        --error-color: #{colors.$color-red-700};
+        --shadow-color: #{colors.$color-neutral-950};
+        --btn-secondary-color: #{colors.$color-neutral-200};
+    }
+}

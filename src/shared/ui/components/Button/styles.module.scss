@@ -1,15 +1,18 @@
-@use "colors";
 @use "spacing";
 @use "rounding";
 
-.button {
+$block: ".button";
+
+#{$block} {
     border-radius: rounding.$sm;
     display: flex;
     justify-content: center;
     text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
 
     &_sm {
-        padding: spacing.$xs;
+        padding: spacing.$xs2;
     }
 
     &_md {
@@ -17,12 +20,29 @@
     }
 
     &_filled {
-        background-color: colors.$buttonBgPrimary;
-        color: colors.$buttonTextPrimary;
+        color: var(--bg-color);
+
+        &#{$block}_primary {
+            background-color: var(--primary-color);
+        }
+
+        &#{$block}_secondary {
+            background-color: var(--btn-secondary-color);
+        }
     }
 
     &_outlined {
-        border: 1px solid colors.$buttonBgPrimary;
-        color: colors.$buttonBgPrimary;
+        border-width: 1px;
+        border-style: solid;
+
+        &#{$block}_primary {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+
+        &#{$block}_secondary {
+            border-color: var(--btn-secondary-color);
+            color: var(--btn-secondary-color);
+        }
     }
 }

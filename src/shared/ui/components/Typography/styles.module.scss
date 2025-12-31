@@ -1,6 +1,8 @@
 @use "typography";
 
 .typography {
+    color: var(--text-color);
+
     &_trunc {
         text-overflow: ellipsis;
         white-space: nowrap;

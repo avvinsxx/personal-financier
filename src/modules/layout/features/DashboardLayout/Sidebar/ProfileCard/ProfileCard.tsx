@@ -28,10 +28,10 @@ export const ProfileCard = () => {
           riley@email.com sadf as fas fd
         </Typography>
       </div>
-      <Button size="md" variant="outlined" color="primary">
+      <Button size="sm" variant="outlined" color="secondary">
         <Lineicons
           icon={MenuMeatballs1Solid}
-          size={24}
+          size={20}
           transform="rotate(90)"
         />
       </Button>

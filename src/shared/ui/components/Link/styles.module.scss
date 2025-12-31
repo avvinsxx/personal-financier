@@ -1,5 +1,3 @@
-@use "colors";
-
 .link {
-    color: colors.$cottonRose;
+    color: var(--primary-color);
 }
