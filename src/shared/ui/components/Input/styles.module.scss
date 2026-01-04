@@ -15,6 +15,7 @@
             transform 0.3s,
             backdrop-filter 0.3s,
             padding 0.3s;
+        color: var(--text-color);
 
         &_error {
             color: var(--error-color);
@@ -28,6 +29,13 @@
         border: 1px solid var(--border-color);
         background-color: transparent;
         border-radius: rounding.$sm;
+        color: var(--text-color);
+
+        &::placeholder {
+            font-weight: bold;
+            opacity: 0.5;
+            color: var(--text-color);
+        }
 
         &:focus {
             outline: 1px solid var(--border-color);

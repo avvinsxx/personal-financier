@@ -8,5 +8,7 @@
 
     &__main {
         padding: spacing.$md;
+        flex: 1;
+        overflow: auto;
     }
 }

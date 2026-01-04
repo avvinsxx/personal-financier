@@ -17,6 +17,7 @@ type Props = PropsWithChildren<
     as?: keyof JSX.IntrinsicElements;
     truncate?: boolean;
     className?: string;
+    weight?: "normal" | "bold";
   } & AllHTMLAttributes
 >;
 
@@ -34,6 +35,7 @@ export const Typography = ({
   truncate = false,
   children,
   className,
+  weight = "normal",
   ...props
 }: Props) => {
   const Component = (as || VARIANT_ELEMENT[variant]) as ElementType;
@@ -43,6 +45,7 @@ export const Typography = ({
       className={clsx(
         styles.typography,
         styles[`typography_${variant}`],
+        styles[`typography_${weight}`],
         truncate && styles.typography_trunc,
         className,
       )}

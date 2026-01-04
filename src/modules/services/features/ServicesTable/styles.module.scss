@@ -1,0 +1,36 @@
+@use "spacing";
+@use "rounding";
+
+$block: ".table";
+
+#{$block} {
+    overflow-x: auto;
+    border-radius: rounding.$sm;
+    box-shadow: 0 5px 10px var(--shadow-color);
+
+    &__table {
+        min-width: 100%;
+        background-color: var(--surface-color);
+        border-collapse: collapse;
+    }
+
+    &__th {
+        border-bottom: 1px solid var(--bg-color);
+    }
+
+    &__th,
+    &__td {
+        padding: spacing.$sm spacing.$sm;
+        text-align: left;
+        & + #{$block}__td,
+        & + #{$block}__th {
+            border-left: 1px solid var(--bg-color);
+        }
+    }
+
+    &__tbody {
+        > :nth-child(even) {
+            background-color: var(--table-even-row-color);
+        }
+    }
+}

@@ -6,6 +6,8 @@ $block: ".button";
 #{$block} {
     border-radius: rounding.$sm;
     display: flex;
+    flex-direction: row;
+    align-items: center;
     justify-content: center;
     text-decoration: none;
     font-weight: 700;

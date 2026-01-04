@@ -28,4 +28,12 @@
     &_text2 {
         font-size: typography.$text2;
     }
+
+    &_normal {
+        font-weight: 400;
+    }
+
+    &_bold {
+        font-weight: 700;
+    }
 }
