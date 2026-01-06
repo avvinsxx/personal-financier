@@ -1,8 +1,10 @@
-import Link from "next/link";
-import clsx from "clsx";
+import Link from 'next/link';
+import clsx from 'clsx';
 
-import { ButtonAsLinkProps, ButtonProps, Props } from "./types";
-import styles from "./styles.module.scss";
+import { Loader } from '../Loader';
+
+import { ButtonAsLinkProps, ButtonProps, Props } from './types';
+import styles from './styles.module.scss';
 
 export const Button = ({
   variant,
@@ -29,6 +31,7 @@ export const Button = ({
       </Link>
     );
   } else {
+    const { isLoading = false, ...buttonProps } = props as ButtonProps;
     return (
       <button
         className={clsx(
@@ -38,9 +41,9 @@ export const Button = ({
           styles[`button_${size}`],
           className,
         )}
-        {...(props as ButtonProps)}
+        {...buttonProps}
       >
-        {children}
+        {isLoading ? <Loader /> : children}
       </button>
     );
   }

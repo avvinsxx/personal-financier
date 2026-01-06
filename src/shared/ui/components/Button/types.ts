@@ -9,6 +9,7 @@ type ButtonBaseProps = {
 
 export type ButtonProps = ButtonBaseProps & {
   asLink?: false;
+  isLoading?: boolean;
 } & ButtonHTMLAttributes<HTMLButtonElement>;
 
 export type ButtonAsLinkProps = ButtonBaseProps & {
