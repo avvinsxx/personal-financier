@@ -1,0 +1,37 @@
+.loader {
+  font-size: 5px;
+  height: 2em;
+  display: flex;
+  flex-direction: row;
+  gap: 1em;
+  overflow: hidden;
+
+  &__circle {
+    position: relative;
+    top: -3em;
+    color: var(--loader-color);
+    border-radius: 50%;
+    width: 2em;
+    height: 2em;
+    animation-fill-mode: both;
+    animation: fadeInOut 1.8s infinite ease-in-out;
+
+    &:nth-child(1) {
+      animation-delay: -0.32s;
+    }
+    &:nth-child(2) {
+      animation-delay: -0.16s;
+    }
+  }
+}
+
+@keyframes fadeInOut {
+  0%,
+  80%,
+  100% {
+    box-shadow: 0 3em 0 -1.3em;
+  }
+  40% {
+    box-shadow: 0 3em 0 0;
+  }
+}
