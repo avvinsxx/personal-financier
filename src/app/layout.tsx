@@ -1,5 +1,6 @@
 import { Inter } from "next/font/google";
 import type { Metadata } from "next";
+import { Toaster } from "react-hot-toast";
 
 import "@/shared/ui/theme/reset.scss";
 import "@/shared/ui/theme/theme.scss";
@@ -22,7 +23,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ru">
-      <body className={`${inter.className}`}>{children}</body>
+      <body className={`${inter.className}`}>
+        {children}
+        <Toaster />
+      </body>
     </html>
   );
 }

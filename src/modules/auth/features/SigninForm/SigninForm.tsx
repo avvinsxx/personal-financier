@@ -3,7 +3,7 @@ import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
 import { sendOtp } from "@/data";
-import { Button, Input } from "@/shared";
+import { Button, Input, VALIDATION_MESSAGES } from "@/shared";
 
 import { OtpForm } from "./OtpForm";
 import styles from "./styles.module.scss";
@@ -42,10 +42,10 @@ export const SigninForm = () => {
             autoFocus
             error={formState.errors.email?.message}
             {...register("email", {
-              required: { value: true, message: "Обязательное поле" },
+              required: VALIDATION_MESSAGES.required,
               pattern: {
                 value: /\S+@\S+\.\S+/,
-                message: "Введенное значение не является email",
+                message: VALIDATION_MESSAGES.email,
               },
             })}
           />
