@@ -2,6 +2,7 @@
 
 .typography {
     color: var(--text-color);
+    line-height: typography.$lineHeightLg;
 
     &_trunc {
         text-overflow: ellipsis;
@@ -23,6 +24,10 @@
 
     &_h3 {
         font-size: typography.$h3;
+    }
+
+    &_text1 {
+        font-size: typography.$text1;
     }
 
     &_text2 {
