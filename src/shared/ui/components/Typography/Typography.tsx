@@ -3,7 +3,7 @@ import clsx from "clsx";
 
 import styles from "./styles.module.scss";
 
-type Variant = "logo1" | "logo2" | "h2" | "h3" | "text2";
+type Variant = "logo1" | "logo2" | "h2" | "h3" | "text1" | "text2";
 
 type AllHTMLAttributes =
   | JSX.IntrinsicElements["h1"]
@@ -26,6 +26,7 @@ const VARIANT_ELEMENT: Record<Variant, keyof JSX.IntrinsicElements> = {
   logo2: "h1",
   h2: "h2",
   h3: "h3",
+  text1: "p",
   text2: "p",
 };
 

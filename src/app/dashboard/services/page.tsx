@@ -1,6 +1,6 @@
 import { FaPlus } from "react-icons/fa";
 
-import { getServices } from "@/data";
+import { getServices } from "@/data/server";
 import { Button, Typography } from "@/shared";
 import { ServicesTable } from "@/modules/services";
 

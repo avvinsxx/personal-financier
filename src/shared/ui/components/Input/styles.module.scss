@@ -2,7 +2,9 @@
 @use 'typography';
 @use 'rounding';
 
-.input {
+$block: '.input';
+
+#{$block} {
   position: relative;
   display: flex;
   flex-direction: column;
@@ -57,7 +59,7 @@
       outline: none;
     }
 
-    &:focus + .input__label {
+    &:focus + #{$block}__label {
       transform: translate(5px, -10px) scale(0.8);
       padding: 0 5px;
     }
@@ -87,10 +89,12 @@
   &__legend {
     color: transparent;
     padding: 0;
-    width: 0;
+    max-width: 0.01px;
+    font-size: typography.$text1;
+    transition: max-width 0s 50ms;
 
     &_filled {
-      width: auto;
+      max-width: 100%;
       padding: 0 1px;
     }
   }

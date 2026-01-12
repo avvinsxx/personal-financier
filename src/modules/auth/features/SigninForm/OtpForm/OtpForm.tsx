@@ -7,10 +7,10 @@ import {
 } from "react";
 import { redirect } from "next/navigation";
 
-import { sendOtp, signin } from "@/data";
+import { sendOtp, signin } from "@/data/client";
 import { Button, Input, InputError } from "@/shared";
 
-import { useResendTimer } from "./hoooks";
+import { useResendTimer } from "./hooks";
 import { KEYBOARD_KEY, OTP_LENGTH } from "./constants";
 import styles from "./styles.module.scss";
 
@@ -47,7 +47,7 @@ export const OtpForm = ({ email, timeout }: Props) => {
       if (data) {
         redirect("/dashboard");
       } else if (error?.status === 429) {
-        setError("Попытки ичсчерпаны, получите другой код и попробуйте снова");
+        setError("Попытки исчерпаны, получите другой код и попробуйте снова");
       } else if (error?.status === 400) {
         setError("Неверный код");
       } else {
@@ -119,8 +119,6 @@ export const OtpForm = ({ email, timeout }: Props) => {
       setError(message);
     }
   };
-
-  console.log("aaa");
 
   return (
     <div className={styles.otpForm}>

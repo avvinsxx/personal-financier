@@ -1,0 +1,27 @@
+@use 'rounding';
+
+.skeleton {
+  border-radius: rounding.$sm;
+  background-color: var(--skeleton-bg-color);
+  background-position: 165%;
+  background-image: linear-gradient(
+    90deg,
+    transparent 0,
+    transparent 35%,
+    var(--skeleton-animation-color) 48%,
+    var(--skeleton-animation-color) 50%,
+    var(--skeleton-animation-color) 52%,
+    transparent 70%,
+    transparent 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 200% 100%;
+
+  animation: loading 1.5s ease-in infinite;
+}
+
+@keyframes loading {
+  to {
+    background-position: -65%;
+  }
+}

@@ -1,18 +1,25 @@
 'use client';
 import { startTransition, useActionState, useEffect } from 'react';
-import { SubmitHandler, useForm } from 'react-hook-form';
+import { Controller, SubmitHandler, useForm } from 'react-hook-form';
 import toast from 'react-hot-toast';
 import { useRouter } from 'next/navigation';
 
-import { Button, Input, validateUrl, VALIDATION_MESSAGES } from '@/shared';
-import { ActionResponse, Service } from '@/data';
+import {
+  Button,
+  FileInput,
+  Input,
+  validateUrl,
+  VALIDATION_MESSAGES,
+} from '@/shared';
+import { ActionResponse } from '@/data';
+import { Service } from '@/data/server';
 
 import { createServiceAction } from './actions';
 import styles from './styles.module.scss';
 
 type Inputs = {
   name: string;
-  icon: string;
+  icon: File;
   url: string;
 };
 
@@ -20,8 +27,8 @@ const initialState: ActionResponse<Service> = {
   success: null,
 };
 
-export function ServiceForm() {
-  const { register, handleSubmit, formState } = useForm<Inputs>();
+export const ServiceForm = () => {
+  const { register, handleSubmit, formState, control } = useForm<Inputs>();
   const router = useRouter();
   const [state, action, pending] = useActionState(
     createServiceAction,
@@ -63,15 +70,23 @@ export function ServiceForm() {
           validate: validateUrl,
         })}
       />
-      <Input
-        disabled={pending}
-        label="Иконка"
-        type="text"
-        error={formState.errors.icon?.message}
-        {...register('icon', {
+      <Controller
+        control={control}
+        name="icon"
+        rules={{
           required: VALIDATION_MESSAGES.required,
-        })}
+        }}
+        render={({ field: { onChange }, fieldState }) => {
+          return (
+            <FileInput
+              label="Иконка"
+              onChange={(e) => onChange(e[0])}
+              error={fieldState.error?.message}
+            />
+          );
+        }}
       />
+
       <Button
         disabled={pending}
         isLoading={pending}
@@ -84,4 +99,4 @@ export function ServiceForm() {
       </Button>
     </form>
   );
-}
+};

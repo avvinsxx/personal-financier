@@ -68,6 +68,7 @@ $block: '.button';
       &:focus:not(:disabled) {
         border-color: var(--btn-hover-primary-color);
         color: var(--btn-hover-primary-color);
+        outline: 1px solid var(--btn-hover-primary-color);
       }
     }
 
@@ -79,6 +80,7 @@ $block: '.button';
       &:focus:not(:disabled) {
         border-color: var(--btn-hover-secondary-color);
         color: var(--btn-hover-secondary-color);
+        outline: 1px solid var(--btn-hover-secondary-color);
       }
     }
   }

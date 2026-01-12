@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
 
-import { sendOtp } from "@/data";
+import { sendOtp } from "@/data/client";
 import { Button, Input, VALIDATION_MESSAGES } from "@/shared";
 
 import { OtpForm } from "./OtpForm";

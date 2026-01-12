@@ -8,7 +8,7 @@ import {
 } from "@tanstack/react-table";
 
 import { Typography, Link } from "@/shared";
-import { Service } from "@/data";
+import { Service } from "@/data/server";
 
 import styles from "./styles.module.scss";
 
