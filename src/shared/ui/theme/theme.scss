@@ -37,5 +37,8 @@
         --table-even-row-color: #{colors.$color-emerald-700};
 
         --loader-color: #fff;
+
+        --skeleton-bg-color: oklch(0.45 0.07 170);
+        --skeleton-animation-color: oklch(0.55 0.05 175);
     }
 }
