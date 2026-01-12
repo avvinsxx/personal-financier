@@ -1,0 +1,92 @@
+@use 'spacing';
+@use 'typography';
+@use 'rounding';
+
+.fileInput {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: spacing.$xs2;
+  font-size: typography.$text1;
+  color: var(--input-text-color);
+
+  &__container {
+    position: relative;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    min-height: 42px;
+    max-height: 84px;
+  }
+
+  &__files {
+    display: flex;
+    flex-flow: row wrap;
+    padding: spacing.$xs2;
+    gap: spacing.$xs2;
+    flex: 1;
+    overflow-y: auto;
+    max-height: 100%;
+  }
+
+  &__file {
+    border: 1px solid var(--border-color);
+    border-radius: rounding.$sm;
+    padding: spacing.$xs2;
+    display: flex;
+    align-items: center;
+    max-width: 150px;
+    height: 34px;
+
+    &_fullWidth {
+      max-width: 100%;
+    }
+  }
+
+  &__fileName {
+    flex: 1;
+  }
+
+  &__addFile {
+    border: 1px solid var(--border-color);
+    border-radius: rounding.$sm;
+    padding: spacing.$xs2;
+    display: flex;
+    align-items: center;
+  }
+
+  &__clearContainer {
+    padding: spacing.$xs2;
+    display: flex;
+    align-items: stretch;
+  }
+
+  &__fieldset {
+    position: absolute;
+    padding: 0 8px;
+    top: -10px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    border: 1px solid var(--border-color);
+    border-radius: rounding.$sm;
+
+    &_error {
+      border-color: var(--error-color);
+    }
+  }
+
+  &__legend {
+    font-size: 0.8rem;
+    padding: 0 2px;
+
+    &_error {
+      color: var(--error-color);
+    }
+  }
+
+  &__input {
+    display: none;
+  }
+}
