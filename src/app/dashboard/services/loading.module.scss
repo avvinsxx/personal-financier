@@ -1,0 +1,33 @@
+@use 'spacing';
+
+.loading {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  gap: spacing.$xl;
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__headerTitle {
+    width: 105px;
+    height: 29px;
+  }
+
+  &__headerButton {
+    width: 135px;
+    height: 42px;
+  }
+
+  &__tableContainer {
+    flex: 1;
+  }
+
+  &__table {
+    width: 100%;
+    height: 50%;
+  }
+}

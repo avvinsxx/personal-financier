@@ -1,14 +1,7 @@
-@use "spacing";
+@use 'spacing';
 
 .page {
-    display: flex;
-    flex-direction: column;
-    gap: spacing.$xl;
-
-    &__header {
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-    }
+  display: flex;
+  flex-direction: column;
+  gap: spacing.$xl;
 }

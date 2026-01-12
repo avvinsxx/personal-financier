@@ -1,14 +1,24 @@
-import { ServiceForm } from "@/modules/services";
-import { Typography } from "@/shared";
+import { headers } from 'next/headers';
+import { redirect } from 'next/navigation';
 
-import styles from "./styles.module.scss";
+import { ServiceForm } from '@/modules/services';
+import { Typography } from '@/shared';
+import { auth } from '@/shared/server';
+
+import styles from './styles.module.scss';
 
 export default async function Page() {
+  const session = await auth.api.getSession({
+    headers: await headers(),
+  });
+
+  if (!session) {
+    redirect('/sign-in');
+  }
+
   return (
     <div className={styles.page}>
-      <div className={styles.page__header}>
-        <Typography variant="h2">Создать сервис</Typography>
-      </div>
+      <Typography variant="h2">Создать сервис</Typography>
       <ServiceForm />
     </div>
   );
