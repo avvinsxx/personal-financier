@@ -5,7 +5,6 @@ import { MdClear } from 'react-icons/md';
 import { FiPlus } from 'react-icons/fi';
 
 import { Button } from '../Button';
-import { InputError } from '../InputError';
 import { Typography } from '../Typography';
 
 import { FilePreview, Props } from './types';
@@ -49,7 +48,12 @@ export const FileInput = ({
 
     const selectedFilesArray = Array.from(selectedFiles);
 
-    const validationError = validate(selectedFilesArray, maxFiles, maxSizeMB);
+    const validationError = validate(
+      files.length,
+      selectedFilesArray,
+      maxFiles,
+      maxSizeMB,
+    );
     if (validationError) {
       setError(validationError);
       event.target.value = '';
@@ -90,7 +94,12 @@ export const FileInput = ({
         ref={inputRef}
         onChange={_onInputChange}
       />
-      <div className={styles.fileInput__container}>
+      <div
+        className={clsx(
+          styles.fileInput__container,
+          !label && styles.fileInput__container_bordered,
+        )}
+      >
         <div className={styles.fileInput__files}>
           {previews.map((p, i) => (
             <div
@@ -139,24 +148,28 @@ export const FileInput = ({
             </Button>
           </div>
         )}
-        <fieldset
-          className={clsx(
-            styles.fileInput__fieldset,
-            errorMessageToShow && styles.fileInput__fieldset_error,
-          )}
-        >
-          <legend
+        {label && (
+          <fieldset
             className={clsx(
-              styles.fileInput__legend,
-              errorMessageToShow && styles.fileInput__legend_error,
+              styles.fileInput__fieldset,
+              errorMessageToShow && styles.fileInput__fieldset_error,
             )}
           >
-            {label}
-          </legend>
-        </fieldset>
+            <legend
+              className={clsx(
+                styles.fileInput__legend,
+                errorMessageToShow && styles.fileInput__legend_error,
+              )}
+            >
+              {label}
+            </legend>
+          </fieldset>
+        )}
       </div>
 
-      {errorMessageToShow && <InputError>{errorMessageToShow}</InputError>}
+      {errorMessageToShow && (
+        <Typography variant="error">{errorMessageToShow}</Typography>
+      )}
     </div>
   );
 };

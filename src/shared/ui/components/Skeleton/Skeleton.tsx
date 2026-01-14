@@ -3,7 +3,8 @@ import clsx from 'clsx';
 import styles from './styles.module.scss';
 
 type Props = {
-  className?: string;
+  /** Класс для конфигурации размера скелетона */
+  className: string;
 };
 
 export const Skeleton = ({ className }: Props) => {

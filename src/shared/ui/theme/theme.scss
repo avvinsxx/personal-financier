@@ -1,44 +1,64 @@
-@use "colors";
+@mixin dark-theme {
+  --bg-color: #1a2a2a;
+  --text-color: #f7f7f7;
+  --primary-color: #cc6600;
+  --surface-color: #346b6a;
+  --border-color: #f7f7f7;
+  --error-color: #b34026;
+  --shadow-color: #252525;
+
+  --input-text-color: var(--text-color);
+  --input-border-color: var(--border-color);
+
+  --btn-primary-color: var(--primary-color);
+  --btn-hover-primary-color: #a65300;
+  --btn-secondary-color: #ebebeb;
+  --btn-hover-secondary-color: #c8c8c8;
+  --btn-disabled-color: #6c757d;
+
+  --table-even-row-color: #3f756f;
+
+  --loader-color: #fff;
+
+  --skeleton-bg-color: #4f6968;
+  --skeleton-animation-color: #658887;
+}
+
+@mixin light-theme {
+  --bg-color: #eff8f3;
+  --text-color: #252525;
+  --primary-color: #cc6600;
+  --surface-color: #8ec8c0;
+  --border-color: #252525;
+  --error-color: #b34026;
+  --shadow-color: #5e5e5e;
+
+  --input-text-color: var(--text-color);
+  --input-border-color: var(--border-color);
+
+  --btn-primary-color: var(--primary-color);
+  --btn-hover-primary-color: #a65300;
+  --btn-secondary-color: #252525;
+  --btn-hover-secondary-color: #3d3d3d;
+
+  --table-even-row-color: #9dd9cd;
+
+  --loader-color: #252525;
+
+  --skeleton-bg-color: #d1e8e4;
+  --skeleton-animation-color: #b3d8d2;
+}
 
 :root {
-    --bg-color: #{colors.$color-emerald-100};
-    --text-color: #{colors.$color-neutral-950};
-    --primary-color: #{colors.$color-amber-600};
-    --surface-color: #{colors.$color-emerald-600};
-    --border-color: #{colors.$color-neutral-950};
-    --error-color: #{colors.$color-red-700};
-    --shadow-color: #{colors.$color-neutral-700};
+  @include light-theme();
 
-    --btn-primary-color: var(--primary-color);
-    --btn-hover-primary-color: oklch(0.566 0.179 58.318);
-    --btn-secondary-color: #{colors.$color-neutral-950};
-    --btn-hover-secondary-color: oklch(0.237 0.077 45.635);
-
-    --table-even-row-color: #{colors.$color-emerald-500};
-
-    @media (prefers-color-scheme: dark) {
-        --bg-color: #{colors.$color-emerald-950};
-        --text-color: #{colors.$color-neutral-100};
-        --primary-color: #{colors.$color-amber-600};
-        --surface-color: #{colors.$color-emerald-800};
-        --border-color: #{colors.$color-neutral-100};
-        --error-color: #{colors.$color-red-700};
-        --shadow-color: #{colors.$color-neutral-950};
-
-        --input-text-color: var(--text-color);
-        --input-border-color: var(--border-color);
-
-        --btn-primary-color: var(--primary-color);
-        --btn-hover-primary-color: oklch(0.566 0.179 58.318);
-        --btn-secondary-color: #{colors.$color-neutral-200};
-        --btn-hover-secondary-color: oklch(0.784 0 0);
-        --btn-disabled-color: #6c757d;
-
-        --table-even-row-color: #{colors.$color-emerald-700};
-
-        --loader-color: #fff;
-
-        --skeleton-bg-color: oklch(0.45 0.07 170);
-        --skeleton-animation-color: oklch(0.55 0.05 175);
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme]) {
+      @include dark-theme();
     }
+  }
+}
+
+[data-theme='dark'] {
+  @include dark-theme();
 }

@@ -1,5 +1,6 @@
 @use 'spacing';
 @use 'rounding';
+@use 'typography';
 
 $block: '.button';
 
@@ -26,10 +27,12 @@ $block: '.button';
   }
 
   &_sm {
-    padding: spacing.$xs2;
+    font-size: typography.$text2;
+    padding: spacing.$xs;
   }
 
   &_md {
+    font-size: typography.$text1;
     padding: spacing.$sm;
   }
 

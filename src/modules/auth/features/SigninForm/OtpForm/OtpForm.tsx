@@ -4,15 +4,15 @@ import {
   KeyboardEvent,
   useRef,
   useState,
-} from "react";
-import { redirect } from "next/navigation";
+} from 'react';
+import { redirect } from 'next/navigation';
 
-import { sendOtp, signin } from "@/data/client";
-import { Button, Input, InputError } from "@/shared";
+import { sendOtp, signin } from '@/data/client';
+import { Button, Input, Typography } from '@/shared';
 
-import { useResendTimer } from "./hooks";
-import { KEYBOARD_KEY, OTP_LENGTH } from "./constants";
-import styles from "./styles.module.scss";
+import { useResendTimer } from './hooks';
+import { KEYBOARD_KEY, OTP_LENGTH } from './constants';
+import styles from './styles.module.scss';
 
 type Props = {
   email: string;
@@ -45,13 +45,13 @@ export const OtpForm = ({ email, timeout }: Props) => {
       const { data, error } = await signin(email, otpString);
 
       if (data) {
-        redirect("/dashboard");
+        redirect('/dashboard');
       } else if (error?.status === 429) {
-        setError("Попытки исчерпаны, получите другой код и попробуйте снова");
+        setError('Попытки исчерпаны, получите другой код и попробуйте снова');
       } else if (error?.status === 400) {
-        setError("Неверный код");
+        setError('Неверный код');
       } else {
-        let message = "Непредвиденная ошибка";
+        let message = 'Непредвиденная ошибка';
         if (error?.message) {
           message = error.message;
         }
@@ -66,7 +66,7 @@ export const OtpForm = ({ email, timeout }: Props) => {
     if (KEYBOARD_KEY.backspace === event.key) {
       event.preventDefault();
       const newOtp = [...otp];
-      newOtp[inputIndex] = "";
+      newOtp[inputIndex] = '';
       setOtp(newOtp);
       _selectInput(inputIndex - 1);
     } else if (KEYBOARD_KEY.left === event.key) {
@@ -96,7 +96,7 @@ export const OtpForm = ({ email, timeout }: Props) => {
     const newOtp = [...otp];
     newOtp[inputIndex] = event.target.value[0];
     setOtp([...newOtp]);
-    const otpString = newOtp.join("");
+    const otpString = newOtp.join('');
     if (otpString.length === OTP_LENGTH) {
       _debouncedSubmit(otpString);
     }
@@ -112,7 +112,7 @@ export const OtpForm = ({ email, timeout }: Props) => {
       setError(null);
       _selectInput(0);
     } else {
-      let message = "Непредвиденная ошибка";
+      let message = 'Непредвиденная ошибка';
       if (error?.message) {
         message = error.message;
       }
@@ -131,7 +131,7 @@ export const OtpForm = ({ email, timeout }: Props) => {
               }}
               key={i}
               autoFocus={i === 0}
-              value={otp[i] || ""}
+              value={otp[i] || ''}
               className={styles.otpForm__inputContainer}
               inputClassName={styles.otpForm__input}
               onChange={(e) => _onChange(e, i)}
@@ -141,7 +141,7 @@ export const OtpForm = ({ email, timeout }: Props) => {
             />
           ))}
         </div>
-        {error && <InputError>{error}</InputError>}
+        {error && <Typography variant="error">{error}</Typography>}
       </div>
       <Button
         variant="filled"
@@ -151,7 +151,7 @@ export const OtpForm = ({ email, timeout }: Props) => {
         disabled={secondsToResend > 0 || isSubmitting}
         onClick={_onResendClick}
       >
-        Отправить повторно {secondsToResend ? `(${secondsToResend} с)` : ""}
+        Отправить повторно {secondsToResend ? `(${secondsToResend} с)` : ''}
       </Button>
     </div>
   );

@@ -17,6 +17,11 @@
     justify-content: space-between;
     min-height: 42px;
     max-height: 84px;
+
+    &_bordered {
+      border: 1px solid var(--border-color);
+      border-radius: rounding.$sm;
+    }
   }
 
   &__files {
@@ -78,7 +83,7 @@
   }
 
   &__legend {
-    font-size: 0.8rem;
+    font-size: typography.$text2;
     padding: 0 2px;
 
     &_error {

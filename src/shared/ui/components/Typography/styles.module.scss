@@ -1,44 +1,49 @@
-@use "typography";
+@use 'typography';
 
 .typography {
-    color: var(--text-color);
-    line-height: typography.$lineHeightLg;
+  color: var(--text-color);
+  line-height: typography.$lineHeightLg;
 
-    &_trunc {
-        text-overflow: ellipsis;
-        white-space: nowrap;
-        overflow: hidden;
-    }
+  &_trunc {
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+  }
 
-    &_logo1 {
-        font-size: typography.$logo1;
-    }
+  &_logo1 {
+    font-size: typography.$logo1;
+  }
 
-    &_logo2 {
-        font-size: typography.$logo2;
-    }
+  &_logo2 {
+    font-size: typography.$logo2;
+  }
 
-    &_h2 {
-        font-size: typography.$h2;
-    }
+  &_h2 {
+    font-size: typography.$h2;
+  }
 
-    &_h3 {
-        font-size: typography.$h3;
-    }
+  &_h3 {
+    font-size: typography.$h3;
+  }
 
-    &_text1 {
-        font-size: typography.$text1;
-    }
+  &_text1 {
+    font-size: typography.$text1;
+  }
 
-    &_text2 {
-        font-size: typography.$text2;
-    }
+  &_text2 {
+    font-size: typography.$text2;
+  }
 
-    &_normal {
-        font-weight: 400;
-    }
+  &_error {
+    color: var(--error-color);
+    font-size: typography.$text2;
+  }
 
-    &_bold {
-        font-weight: 700;
-    }
+  &_normal {
+    font-weight: 400;
+  }
+
+  &_bold {
+    font-weight: 700;
+  }
 }

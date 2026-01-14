@@ -15,11 +15,12 @@ $block: '.input';
   }
 
   &__label {
-    font-size: typography.$text1;
+    font-size: typography.$text2;
     position: absolute;
-    top: 0;
-    left: 0;
-    transform: translate(13px, 11px);
+    top: -5px;
+    left: 13px;
+    transform: translate(-1px, 21px) scale(1.33333);
+    transform-origin: left;
     transition:
       transform 0.3s,
       padding 0.3s;
@@ -31,8 +32,7 @@ $block: '.input';
     }
 
     &_filled {
-      transform: translate(5px, -10px) scale(0.8);
-      padding: 0 5px;
+      transform: none;
     }
 
     &_disabled {
@@ -46,7 +46,8 @@ $block: '.input';
     padding: spacing.$sm;
     width: 100%;
     background-color: transparent;
-    border: none;
+    border: 1px solid transparent;
+    border-radius: rounding.$sm;
     color: var(--text-color);
 
     &::placeholder {
@@ -60,20 +61,27 @@ $block: '.input';
     }
 
     &:focus + #{$block}__label {
-      transform: translate(5px, -10px) scale(0.8);
-      padding: 0 5px;
+      transform: none;
     }
 
     &:disabled {
       cursor: not-allowed;
       opacity: 0.6;
     }
+
+    &_bordered {
+      border-color: var(--border-color);
+    }
+
+    &_error {
+      border-color: var(--error-color);
+    }
   }
 
   &__fieldset {
     position: absolute;
     padding: 0 8px;
-    top: -9px;
+    top: -6px;
     left: 0;
     right: 0;
     bottom: 0;
@@ -90,12 +98,12 @@ $block: '.input';
     color: transparent;
     padding: 0;
     max-width: 0.01px;
-    font-size: typography.$text1;
+    font-size: typography.$text2;
     transition: max-width 0s 50ms;
 
     &_filled {
       max-width: 100%;
-      padding: 0 1px;
+      padding: 0 4px;
     }
   }
 }

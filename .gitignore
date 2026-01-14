@@ -44,3 +44,5 @@ next-env.d.ts
 /src/shared/generated/prisma
 
 /public/uploads
+*storybook.log
+storybook-static

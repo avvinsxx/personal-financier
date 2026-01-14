@@ -4,15 +4,17 @@
   "private": true,
   "scripts": {
     "dev": "npm run docker:dev && npm run next:dev",
-    "build": "next build",
-    "start": "next start",
     "lint": "eslint",
     "next:dev": "next dev",
+    "next:build": "next build",
+    "next:start": "next start",
     "prisma:generate": "prisma generate",
     "prisma:migrate": "prisma migrate dev",
     "prisma:studio": "prisma studio",
     "prisma:push": "prisma db push",
-    "docker:dev": "docker-compose up -d"
+    "docker:dev": "docker-compose up -d",
+    "storybook:dev": "storybook dev -p 6006",
+    "storybook:build": "storybook build"
   },
   "dependencies": {
     "@emotion/cache": "^11.14.0",
@@ -43,6 +45,19 @@
     "prisma": "^7.2.0",
     "sass": "^1.97.1",
     "tsx": "^4.21.0",
-    "typescript": "^5"
+    "typescript": "^5",
+    "storybook": "^10.1.11",
+    "@storybook/nextjs-vite": "^10.1.11",
+    "@chromatic-com/storybook": "^5.0.0",
+    "@storybook/addon-vitest": "^10.1.11",
+    "@storybook/addon-a11y": "^10.1.11",
+    "@storybook/addon-docs": "^10.1.11",
+    "@storybook/addon-onboarding": "^10.1.11",
+    "vite": "^7.3.1",
+    "eslint-plugin-storybook": "^10.1.11",
+    "vitest": "^4.0.17",
+    "playwright": "^1.57.0",
+    "@vitest/browser-playwright": "^4.0.17",
+    "@vitest/coverage-v8": "^4.0.17"
   }
 }

@@ -9,7 +9,7 @@ import {
 } from 'react';
 import clsx from 'clsx';
 
-import { InputError } from '../InputError';
+import { Typography } from '../Typography';
 
 import styles from './styles.module.scss';
 
@@ -53,7 +53,12 @@ export const Input = ({
     <div className={clsx(styles.input, className)}>
       <div className={styles.input__container}>
         <input
-          className={clsx(styles.input__input, inputClassName)}
+          className={clsx(
+            styles.input__input,
+            !label && styles.input__input_bordered,
+            !label && error && styles.input__input_error,
+            inputClassName,
+          )}
           onChange={_onChange}
           onFocus={_onFocus}
           onBlur={_onBlur}
@@ -73,24 +78,26 @@ export const Input = ({
             {label}
           </label>
         )}
-        <fieldset
-          className={clsx(
-            styles.input__fieldset,
-            error && styles.input__fieldset_error,
-          )}
-        >
-          <legend
+        {label && (
+          <fieldset
             className={clsx(
-              styles.input__legend,
-              (isFocused || isFilled) && styles.input__legend_filled,
+              styles.input__fieldset,
+              error && styles.input__fieldset_error,
             )}
           >
-            {label}
-          </legend>
-        </fieldset>
+            <legend
+              className={clsx(
+                styles.input__legend,
+                (isFocused || isFilled) && styles.input__legend_filled,
+              )}
+            >
+              {label}
+            </legend>
+          </fieldset>
+        )}
       </div>
 
-      {error && <InputError>{error}</InputError>}
+      {error && <Typography variant="error">{error}</Typography>}
     </div>
   );
 };

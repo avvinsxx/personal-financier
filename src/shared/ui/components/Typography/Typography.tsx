@@ -1,15 +1,15 @@
-import { ElementType, JSX, PropsWithChildren } from "react";
-import clsx from "clsx";
+import { ElementType, JSX, PropsWithChildren } from 'react';
+import clsx from 'clsx';
 
-import styles from "./styles.module.scss";
+import styles from './styles.module.scss';
 
-type Variant = "logo1" | "logo2" | "h2" | "h3" | "text1" | "text2";
+type Variant = 'logo1' | 'logo2' | 'h2' | 'h3' | 'text1' | 'text2' | 'error';
 
 type AllHTMLAttributes =
-  | JSX.IntrinsicElements["h1"]
-  | JSX.IntrinsicElements["h2"]
-  | JSX.IntrinsicElements["h3"]
-  | JSX.IntrinsicElements["p"];
+  | JSX.IntrinsicElements['h1']
+  | JSX.IntrinsicElements['h2']
+  | JSX.IntrinsicElements['h3']
+  | JSX.IntrinsicElements['p'];
 
 type Props = PropsWithChildren<
   {
@@ -17,17 +17,18 @@ type Props = PropsWithChildren<
     as?: keyof JSX.IntrinsicElements;
     truncate?: boolean;
     className?: string;
-    weight?: "normal" | "bold";
+    weight?: 'normal' | 'bold';
   } & AllHTMLAttributes
 >;
 
 const VARIANT_ELEMENT: Record<Variant, keyof JSX.IntrinsicElements> = {
-  logo1: "h1",
-  logo2: "h1",
-  h2: "h2",
-  h3: "h3",
-  text1: "p",
-  text2: "p",
+  logo1: 'h1',
+  logo2: 'h1',
+  h2: 'h2',
+  h3: 'h3',
+  text1: 'p',
+  text2: 'p',
+  error: 'p',
 };
 
 export const Typography = ({
@@ -36,7 +37,7 @@ export const Typography = ({
   truncate = false,
   children,
   className,
-  weight = "normal",
+  weight = 'normal',
   ...props
 }: Props) => {
   const Component = (as || VARIANT_ELEMENT[variant]) as ElementType;
